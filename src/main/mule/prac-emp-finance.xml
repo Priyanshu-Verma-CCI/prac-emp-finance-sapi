@@ -166,7 +166,7 @@ output application/json
 	</flow>
 	<flow name="prac-emp-financeFlow1" doc:id="7b6cc9a8-e741-4a26-b709-75064024d336" >
 		<http:listener doc:name="Listener" doc:id="e5127294-dcf5-4e81-a9f1-2bea4d7517ac" config-ref="HTTP_Listener_config" path="employee/{employeeId}"/>
-		<logger level="INFO" doc:name="Logger" doc:id="ae5c4234-ef55-4121-a923-a8b915f798a3" />
+		<logger level="INFO" doc:name="Logger" doc:id="ae5c4234-ef55-4121-a923-a8b915f798a3" message="Started Log Successfully"/>
 		<ee:transform doc:name="Transform Message" doc:id="adcb855d-4da2-47f0-9680-4c7bcf56e1ab">
 			<ee:message>
 				<ee:set-payload><![CDATA[%dw 2.0
