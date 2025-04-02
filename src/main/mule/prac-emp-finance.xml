@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="prac-emp-financeFlow" doc:id="27243902-9e9d-44df-bad4-852647650a48" >
 		<http:listener doc:name="Listener" doc:id="b9d6d8b8-51a7-4edc-9cf1-de12972650a4" config-ref="HTTP_Listener_config" path="employee"/>
-		<logger level="INFO" doc:name="Logger" doc:id="4ae00d11-c3e9-4f01-8196-951fc677c55e" />
+		<logger level="INFO" doc:name="Logger" doc:id="4ae00d11-c3e9-4f01-8196-951fc677c55e" message="Flow started Successfullly"/>
 		<ee:transform doc:name="Transform Message" doc:id="4b3c3eb3-4168-4dab-a134-0766bccd8ccc" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
