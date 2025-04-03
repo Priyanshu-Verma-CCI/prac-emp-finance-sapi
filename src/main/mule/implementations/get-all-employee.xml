@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get:\employee:prac-employee-retrieval-config" doc:id="e37a4836-7280-4a0a-bc80-75fc08b48be8" >
+		<ee:transform doc:name="Transform Message" doc:id="5c8b242f-6a07-4fbe-9be0-8e4975874779" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[
+  {
+    id: 1,
+    name: "John Doe",
+    department: "Finance"
+  }, 
+  {
+    id: 2,
+    name: "Jane Smith",
+    department: "HR"
+  }
+] as Array {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
