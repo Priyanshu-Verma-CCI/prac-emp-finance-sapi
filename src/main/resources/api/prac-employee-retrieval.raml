@@ -1,0 +1,55 @@
+#%RAML 1.0
+title: Employee API
+version: v1
+baseUri: http://localhost:8081/finance
+
+types:
+  Employee:
+    type: object
+    properties:
+      id: integer
+      name: string
+      department: string
+
+/employee:
+  get:
+    description: Get all employees
+    responses:
+      200:
+        body:
+          application/json:
+            type: Employee[]
+            example: |
+              [
+                {
+                  "id": 1,
+                  "name": "John Doe",
+                  "department": "Finance"
+                },
+                {
+                  "id": 2,
+                  "name": "Jane Smith",
+                  "department": "HR"
+                }
+              ]
+
+  /{employeeId}:
+    uriParameters:
+      employeeId:
+        type: integer
+        description: The unique identifier of the employee
+    get:
+      description: Get employee by ID
+      responses:
+        200:
+          body:
+            application/json:
+              type: Employee
+              example: |
+                {
+                  "id": 1,
+                  "name": "John Doe",
+                  "department": "Finance"
+                }
+        404:
+          description: Employee not found
