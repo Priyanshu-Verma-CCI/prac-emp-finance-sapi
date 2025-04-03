@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ce235d46-115c-497c-b0e2-474afd80f5e9</groupId>
-	<artifactId>prac-employee-retrieval</artifactId>
+	<artifactId>prac-employee-retrieval-sapi</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>prac-employee-retrieval</name>
+	<name>prac-employee-retrieval-sapi</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,10 +22,30 @@
 		<repository>
 			<id>Repository</id>
 			<name>Corporate Repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/ORGANIZATION_ID/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/ce235d46-115c-497c-b0e2-474afd80f5e9/maven</url>
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<environment>DEV</environment>
+				<anypoint.platform.client_id>6e51066873394fe89c303bdf3aa2beab</anypoint.platform.client_id>
+				<anypoint.platform.client_secret>42B5a5bB663b456F8931571B5F543B9D</anypoint.platform.client_secret>
+				<api.id>20280588</api.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<properties>
+				<environment>QA</environment>
+				<anypoint.platform.client_id>e94cf5f7cf64471c9307cf1f911b4adf</anypoint.platform.client_id>
+				<anypoint.platform.client_secret>2D8D01E4086E41e4a60234B4D9B2cf47</anypoint.platform.client_secret>
+				<api.id>20280597</api.id>
+			</properties>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -39,6 +59,23 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<environment>${environment}</environment>
+						<target>Cloudhub-US-East-1</target>
+						<muleVersion>${muleVersion}</muleVersion>
+						<server>Repository</server>
+						<applicationName>prac-employee-retrieval-sapi</applicationName>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+						<properties>
+							<http.port>8081</http.port>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+							<api.id>${api.id}</api.id>
+						</properties>
+					</cloudhub2Deployment>
 					<classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
