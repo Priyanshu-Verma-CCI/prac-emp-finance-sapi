@@ -6,7 +6,7 @@
 
 	<groupId>ce235d46-115c-497c-b0e2-474afd80f5e9</groupId>
 	<artifactId>prac-employee-retrieval-sapi</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.6</version>
 	<packaging>mule-application</packaging>
 
 	<name>prac-employee-retrieval-sapi</name>
@@ -63,10 +63,10 @@
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
 						<environment>${environment}</environment>
-						<target>Cloudhub-US-East-1</target>
-						<muleVersion>${muleVersion}</muleVersion>
+						<target>Cloudhub-US-West-1</target>
+						<muleVersion>4.9.2</muleVersion>
 						<server>Repository</server>
-						<applicationName>prac-employee-retrieval-sapi</applicationName>
+						<applicationName>>prac-employee-retrieval-sapi</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
 						<properties>
