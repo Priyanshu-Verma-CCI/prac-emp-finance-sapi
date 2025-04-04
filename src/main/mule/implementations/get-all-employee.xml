@@ -13,7 +13,7 @@ output application/json
 [
   {
     id: 1,
-    name: "John Doe",
+    name: "John Does",
     department: "Finance"
   }, 
   {
