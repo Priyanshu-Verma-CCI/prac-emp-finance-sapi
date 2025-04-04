@@ -6,7 +6,7 @@
 
 	<groupId>ce235d46-115c-497c-b0e2-474afd80f5e9</groupId>
 	<artifactId>prac-employee-retrieval-sapi</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 	<packaging>mule-application</packaging>
 
 	<name>prac-employee-retrieval-sapi</name>
@@ -31,6 +31,7 @@
 			<id>dev</id>
 			<properties>
 				<environment>DEV</environment>
+				<applicationName>prac-employee-retrieval-sapi-dev</applicationName>
 				<anypoint.platform.client_id>6e51066873394fe89c303bdf3aa2beab</anypoint.platform.client_id>
 				<anypoint.platform.client_secret>42B5a5bB663b456F8931571B5F543B9D</anypoint.platform.client_secret>
 				<api.id>20280588</api.id>
@@ -40,6 +41,7 @@
 			<id>qa</id>
 			<properties>
 				<environment>QA</environment>
+				<applicationName>prac-employee-retrieval-sapi-qa</applicationName>
 				<anypoint.platform.client_id>e94cf5f7cf64471c9307cf1f911b4adf</anypoint.platform.client_id>
 				<anypoint.platform.client_secret>2D8D01E4086E41e4a60234B4D9B2cf47</anypoint.platform.client_secret>
 				<api.id>20280597</api.id>
@@ -66,7 +68,7 @@
 						<target>Cloudhub-US-West-1</target>
 						<muleVersion>4.9.2</muleVersion>
 						<server>Repository</server>
-						<applicationName>prac-employee-retrieval-sapi</applicationName>
+						<applicationName>${applicationName}</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
 						<properties>
